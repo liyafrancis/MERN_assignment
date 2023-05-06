@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { Route, Routes,Link } from 'react-router-dom';
+import { AppBar, Button, Toolbar } from '@mui/material'
+
+import Employee from './Components/Employee';
+import Home from './Components/Home';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <AppBar>
+      <Toolbar >
+      <Button  color='inherit' ><Link to={'/add'} style={{textDecoration:'none',color:'white'}}>Home</Link> </Button>
+      <Button  color='inherit' ><Link to={'/view'} style={{textDecoration:'none',color:'white'}}>Employee</Link> </Button>
+  
+      </Toolbar>  
+      </AppBar> 
+
+      <Routes>
+    <Route path='/add' element={<Home/>}/>
+    <Route path='/view' element={<Employee/>}/>
+      
+    </Routes>
     </div>
   );
 }
